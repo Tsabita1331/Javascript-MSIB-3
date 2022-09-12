@@ -1,0 +1,58 @@
+<script>
+    var pegawai ="Ridwan";
+    var jabatan ="Manager";
+    var status ="Menikah";
+
+    if(jabatan == 'Manager'){
+        gapok = 15000000;
+    }
+    else if (jabatan == 'Asisten Manager'){
+        gapok = 10000000;
+    }
+    else if (jabatan == 'Staff'){
+        gapok = 5000000;
+    }
+    else{
+        gapok = 0;
+    }
+    Tunjab= 0.15 * gapok;
+    Bpjs= 0.1 * gapok;
+    Tunkel = (status == 'Menikah') ? 0.2*gapok : 0;
+    total= gapok+Tunjab+Bpjs+Tunkel;
+
+    document.write ("Nama : "  + pegawai +
+    "<br/> Jabatan : " + jabatan + 
+    "<br/> Status : " + status +"<br/>");
+    document.write("<table border='1' cellpadding='10' cellspacing='0' width='40%'>"+
+        "<thead bgcolor='tomato'>"+
+            "<tr>"+
+                "<th>DATA</th>"+
+                "<th>JUMLAH</th>"+
+            "</tr>"+
+        "</thead>"+
+        "<tbody>"+
+            "<tr>"+
+				"<td>Gaji Pokok</td>"+
+                "<td>Rp. "+gapok+"</td>"+
+            "</tr>"+
+            "<tr>"+
+				"<td>Tunjangan Jabatan</td>"+
+                "<td>Rp. "+Tunjab+"</td>"+
+            "</tr>"+
+            "<tr>"+
+				"<td>BPJS</td>"+
+                "<td>Rp. "+Bpjs+"</td>"+
+            "</tr>"+
+            "<tr>"+
+				"<td>Tunjangan Keluarga</td>"+
+                "<td>Rp. "+Tunkel+"</td>"+
+            "</tr>"+
+        "</tbody>"+
+        "<tfoot bgcolor='yellow'>"+
+			"<tr>"+
+				"<td>Total Gaji</td>"+
+                "<td>Rp. "+total+"</td>"+
+			"</tr>"+
+		"</tfoot>"+
+    "</table>");
+</script>
