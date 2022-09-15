@@ -1,0 +1,67 @@
+    <h3 align="center">Daftar Nilai Mahasiswa</h3>
+            <table align="center" border="1" cellpadding="20">
+                <thead>
+                    <tr bgcolor="#d2a679">
+                        <th>NO</th>
+                        <th>NAMA</th>
+                        <th>JABATAN</th>
+                        <th>AGAMA</th>
+                        <th>GAJI POKOK</th>
+                        <th>TUNJANGAN JABATAN</th>
+                        <th>TUNJANGAN KESEHATAN</th>
+                        <th>GAJI KOTOR</th>
+                        <th>ZAKAT PROFESI</th>
+                        <th>TAKE HOME PAY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <script language="javascript">
+                     var no;
+                    for(no = 1; no <= 100; no++){
+
+                        let jabatan=""; 
+                        if(no > 75 && no <= 100) jabatan="Staff";
+                        else if(no > 50 && no <= 75) jabatan="Supervisor";
+                        else if(no > 25 && no <= 50) jabatan="Asisten Manager";
+                        else if(no > 0 && no <= 25) jabatan="Manager";
+                        else jabatan="";
+
+                        let gapok=""; 
+                        switch (jabatan) {
+                            case "Asisten Manager": gapok = 10000000; break;
+                            case "Supervisor": gapok = 7000000; break;
+                            case "Staff": gapok = 4000000; break;
+                            case "Manager": gapok = 15000000; break;
+                            default: gapok = ""; break; }
+                            
+                        agama = (no % 2 == 0) ? 'Non Muslim' :'Muslim';
+                        warna = (no % 2 == 0) ? '#ffccee' :'#e0e0d1';
+                        tunjab= 0.2 * gapok;
+                        tunkes= 0.1 * gapok;
+                        gakor= gapok + tunjab + tunkes;
+                        
+                        let zakat="0"; 
+                        if(agama == 'Muslim' && gakor >= 7000000) zakat= 0.025 * gakor;
+                        else if(agama == 'Muslim' && gakor < 7000000) zakat= 0 ;
+                        else if(agama == 'Non Muslim' && gakor >= 7000000) zakat= 0 ;
+                        else if(agama == 'Non Muslim' && gakor < 7000000) zakat= 0;
+                        else zakat= 0 ;
+
+                        thp= gakor - zakat;
+                        document.write(`<tr bgcolor="${warna}">
+                            <td>${no}</td>
+                            <td>Pegawai ${no}</td>
+                            <td>${jabatan}</td>
+                            <td>${agama}</td>
+                            <td>${gapok}</td>
+                            <td>${tunjab}</td>
+                            <td>${tunkes}</td>
+                            <td>${gakor}</td>
+                            <td>${zakat}</td>
+                            <td>${thp}</td>
+                        </tr>`);
+                    }
+                    </script>
+                </tbody>
+            </table>
+    
