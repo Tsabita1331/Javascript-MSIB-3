@@ -1,0 +1,60 @@
+<h3 align="center">INFORMASI GEMPA</h3>
+            <table align="center" border="1" cellpadding="20">
+                <thead>
+                    <tr bgcolor="#d2a679">
+                        <th>NO</th>
+                        <th>LOKASI</th>
+                        <th>SKALA</th>
+                        <th>DAMPAK</th>
+                    </tr>
+                </thead>
+                <tbody>
+<script>
+for(no = 1; no >= 10; no++);
+    class Gempa{
+        constructor(lokasi, skala){
+            this.lokasi = lokasi;
+            this.skala = skala;
+        }
+    
+    //Jika skalanya <= 2, dampaknya tidak terasa
+    //Jika skalanya > 2 s/d <= 4, dampaknya bangunan retak2
+    //Jika skalanya > 4 s/d <= 6, dampaknya bangunan roboh
+    //Di atas 6, dampaknya bangunan roboh dan berpotensi tsunami
+        getDampak(){
+            if(this.skala > 6 && this.skala <= 10) this.dampakgempa = 'bangunan roboh dan berpotensi tsunami';
+            else if(this.skala > 4 && this.skala <= 6) this.dampakgempa = 'bangunan roboh';
+            else if(this.skala > 2 && this.skala <= 4) this.dampakgempa = 'bangunan retak-retak';
+            else if(this.skala >= 0 && this.skala <= 2) this.dampakgempa = 'tidak terasa';
+            else this.dampakgempa = '';
+            return this.dampakgempa;
+        }
+    
+        //fungsi infoGempa() memberikan informasi gempa berbentuk tabel dari bootstrap dengan kolom: no, lokasi, skala, dampak
+    
+        infoGempa(){
+            document.write(`<tr>
+                            <td>${no++}</td>
+                            <td>${this.lokasi}</td>
+                            <td>${this.skala}</td>
+                            <td>${this.getDampak()}</td>
+                            </tr>`);
+        }
+    }
+
+    //-------membuat object-----
+    g0 = new Gempa('Sumatra','5');
+    g1 = new Gempa('Sulawesi Utara','7');
+    g2 = new Gempa('Kepulauan Sunda','3');
+    g3 = new Gempa('Bali','3');
+    g4 = new Gempa('Bengkulu','4');
+    g5 = new Gempa('Sulawesi Tengah','7');
+    g6 = new Gempa('Aceh','5');
+    g7 = new Gempa('Maluku','1');
+    g8 = new Gempa('Banten','5');
+    g9 = new Gempa('Lombok','2');
+    
+    g0.infoGempa(); g1.infoGempa(); g2.infoGempa(); g3.infoGempa(); g4.infoGempa(); g5.infoGempa(); g6.infoGempa(); g7.infoGempa(); g8.infoGempa(); g9.infoGempa(); 
+    
+    </script>
+       
